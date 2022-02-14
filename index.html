@@ -39,14 +39,15 @@
         <section>
             <h2>Tooltip with additional information</h2>
             <p>This implementation follows the <a href="https://w3c.github.io/aria-practices/#tooltip">guidance of the ARIA Authoring Practices Guide</a>.</p>
-            <div class="tooltip-container">
+            <div class="tooltip-container" data-tooltip-position="top">
                 <button type="button" aria-describedby="description">
                     Settings
                 </button>
                 <p id="description" role="tooltip" class="hidden">View and manage settings</p>
             </div>
+            <p>Note: the default position of this tooltip is set to be above the control. This is set via the <code>data-tooltip-position</code> attribute value.</p>
             <h3>Source</h3>
-<pre><code>&lt;button type="button" aria-describedby="description"&gt;
+<pre><code>&lt;button type="button" aria-describedby="description" data-tooltip-position="top"&gt;
     Settings
 &lt;/button&gt;
 &lt;p id="description" role="tooltip" class="hidden"&gt;View and manage settings&lt;/p&gt;

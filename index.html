@@ -12,7 +12,7 @@
         <h1>Tooltips</h1>
         <p>Two different implementations of the tooltip design pattern.</p>
         <section>
-            <h2>Todo:</h2>
+            <h2 id="todos">Todo:</h2>
             <ul>
                 <li><input type="checkbox" id="td1" checked><label for="td1"> Comply with <a href="https://www.w3.org/TR/WCAG21/#content-on-hover-or-focus">WCAG 2.1 SC 1.4.13 Content on Hover or Focus</a></label></li>
                 <li><input type="checkbox" id="td2" checked><label for="td2"> Do some bounding box calculations</label></li>
@@ -21,7 +21,7 @@
             </ul>
         </section>
         <section>
-            <h2>Tooltip as main label</h2>
+            <h2 id="tooltip-main-label">Tooltip as main label</h2>
             <p>In this version the label for the button is privded via a <code>aria-labelledby</code> attribute that points to tooltip text.</p>
             <div class="tooltip-container">
                 <button type="button" aria-labelledby="tooltip">
@@ -37,7 +37,7 @@
 </code></pre>
         </section>
         <section>
-            <h2>Tooltip with additional information</h2>
+            <h2 id="tooltip-additional">Tooltip with additional information</h2>
             <p>This implementation follows the <a href="https://w3c.github.io/aria-practices/#tooltip">guidance of the ARIA Authoring Practices Guide</a>.</p>
             <div class="tooltip-container" data-tooltip-position="top">
                 <button type="button" aria-describedby="description">
@@ -54,22 +54,22 @@
 </code></pre>
         </section>
         <section>
-            <h2>Keyboard support</h2>
+            <h2 id="keyboard-support">Keyboard support</h2>
             <p>Pressing <kbd>Escape</kbd> will close the tooltip.</p>
         </section>
         <section>
-            <h2>Touch support</h2>
+            <h2 id="touch-support">Touch support</h2>
             <p>Tapping anywhere outside the tooltip or button will close the tooltip.</p>
         </section>
         <section>
-            <h2>Development notes</h2>
+            <h2 id="development-notes">Development notes</h2>
             <ul>
                 <li>Played around with <code>pointerover</code> and related pointer events; cool but a bit overkill here.</li>
             </ul>
         </section>
         <section>
-            <h2>Test results</h2>
-            <h3>Sometime in 2022</h3>
+            <h2 id="test-results">Test results</h2>
+            <h3 id="tests-2022">Sometime in 2022</h3>
             <p>Tested to work with these browsers:</p>
             <ul>
                 <li>Chrome 98.0.4758.80 on macOS 11.6.2 and Windows 10</li>
@@ -93,7 +93,7 @@
             <ol class="footnotes" start="5">
                 <li id="fn5">The description is read twice</li>
             </ol>
-            <h3>Sometime in 2019</h3>
+            <h3 id="tests-2019">Sometime in 2019</h3>
             <p>Note: these results are from 2019. While there were no major failures in these results; it’ll be well worth running these again!</p>
             <p>The ARIA bits of this work in Safari with VoiceOver on iOS. But the tooltips themselves aren’t visible before you trigger the action. This is a limitation of the design pattern.</p>
             <p>Tested to work in these browsers:</p>
@@ -125,7 +125,7 @@
             </ol>
         </section>
         <section>
-            <h2>Resources</h2>
+            <h2 id="resources">Resources</h2>
             <ul>
                 <li><a href="https://sarahmhigley.com/writing/tooltips-in-wcag-21/">Tooltips in the time of WCAG 2.1</a> by Sarah Higley</li>
                 <li><a href="https://inclusive-components.design/tooltips-toggletips/">Tooltips and Toggletips</a> by Heydon Works</li>
@@ -136,7 +136,7 @@
             </ul>
         </section>
         <section>
-            <h2>Special thanks</h2>
+            <h2 id="special-thanks">Special thanks</h2>
             <ul>
                 <li><a href="https://github.com/thezacharytaylor">Zachary Taylor</a> for the bounding box calculations</li>
             </ul>

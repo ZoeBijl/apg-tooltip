@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APG Tooltips</title>
+    <link rel="stylesheet" href="basic-bits.css">
+    <link rel="stylesheet" href="tooltips.css">
+</head>
+<body>
+    <main>
+        <h1>Tooltips</h1>
+        <p>Two different implementations of the tooltip design pattern.</p>
+        <section>
+            <h2>Todo:</h2>
+            <ul>
+                <li><input type="checkbox" id="td1" checked><label for="td1"> Comply with <a href="https://www.w3.org/TR/WCAG21/#content-on-hover-or-focus">WCAG 2.1 SC 1.4.13 Content on Hover or Focus</a></label></li>
+                <li><input type="checkbox" id="td2" checked><label for="td2"> Do some bounding box calculations</label></li>
+                <li><input type="checkbox" id="td3"><label for="td3"> Clean up <code>addEventListener</code> code</label></li>
+                <li><input type="checkbox" id="td4"><label for="td4"> Rerun tests</label></li>
+            </ul>
+        </section>
+        <section>
+            <h2>Tooltip as main label</h2>
+            <p>In this version the label for the button is privded via a <code>aria-labelledby</code> attribute that points to tooltip text.</p>
+            <div class="tooltip-container">
+                <button type="button" aria-labelledby="tooltip">
+                    <span aria-hidden="true">💛</span>
+                </button>
+                <p id="tooltip" role="tooltip" class="hidden">Like</p>
+            </div>
+            <h3>Source</h3>
+<pre><code>&lt;button type="button" aria-labelledby="tooltip"&gt;
+    &lt;span aria-hidden="true"&gt;💛&lt;/span&gt;
+&lt;/button&gt;
+&lt;p id="tooltip" role="tooltip" class="hidden"&gt;Like&lt;/p&gt;
+</code></pre>
+        </section>
+        <section>
+            <h2>Tooltip with additional information</h2>
+            <p>This implementation follows the <a href="https://w3c.github.io/aria-practices/#tooltip">guidance of the ARIA Authoring Practices Guide</a>.</p>
+            <div class="tooltip-container">
+                <button type="button" aria-describedby="description">
+                    Settings
+                </button>
+                <p id="description" role="tooltip" class="hidden">View and manage settings</p>
+            </div>
+            <h3>Source</h3>
+<pre><code>&lt;button type="button" aria-describedby="description"&gt;
+    Settings
+&lt;/button&gt;
+&lt;p id="description" role="tooltip" class="hidden"&gt;View and manage settings&lt;/p&gt;
+</code></pre>
+        </section>
+        <section>
+            <h2>Keyboard support</h2>
+            <p>Pressing <kbd>Escape</kbd> will close the tooltip.</p>
+        </section>
+        <section>
+            <h2>Touch support</h2>
+            <p>Tapping anywhere outside the tooltip or button will close the tooltip.</p>
+        </section>
+        <section>
+            <h2>Development notes</h2>
+            <ul>
+                <li>Played around with <code>pointerover</code> and related pointer events; cool but a bit overkill here.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Test results</h2>
+            <h3>Sometime in 2022</h3>
+            <p>Tested to work with these browsers:</p>
+            <ul>
+                <li>Chrome 98.0.4758.80 on macOS 11.6.2 and Windows 10</li>
+                <li>Firefox 96.0.3 on macOS 11.6.2 and Windows 10</li>
+                <li>Safari 15.2 on macOS 11.6.2</li>
+                <li>Chrome 97 on Android 9</li>
+                <li>Firefox 96 on Android 9</li>
+                <li>Safari on iOS 15.2.1</li>
+            </ul>
+            <p>Tested to work with these browser/assistive technology combinations:</p>
+            <ul>
+                <li>VoiceOver and Chrome 98.0.4758.80 on macOS 11.6.2</li>
+                <li>VoiceOver and Safari 15.2 on macOS 11.6.2</li>
+                <li>VoiceOver and Safari on iOS 15.2.1</li>
+                <li>JAWS 2022.2112.24 and Chrome  98.0.4758.82 on Windows 10</li>
+                <li>JAWS 2022.2112.24 and Firefox 96.0.3 on Windows 10<a href="#fn5">5</a></li>
+                <li>NVIDA 2021.3.1 and Chrome 98.0.4758.82 on Windows 10</li>
+                <li>NVIDA 2021.3.1 and Firefox 96.0.3 on Windows 10</li>
+            </ul>
+            <h4>Notes</h4>
+            <ol class="footnotes" start="5">
+                <li id="fn5">The description is read twice</li>
+            </ol>
+            <h3>Sometime in 2019</h3>
+            <p>Note: these results are from 2019. While there were no major failures in these results; it’ll be well worth running these again!</p>
+            <p>The ARIA bits of this work in Safari with VoiceOver on iOS. But the tooltips themselves aren’t visible before you trigger the action. This is a limitation of the design pattern.</p>
+            <p>Tested to work in these browsers:</p>
+            <ul>
+                <li>Chrome 71.0.3578.98 on macOS 10.14.3 / Windows 10</li>
+                <li>Safari 12.0.3 on macOS 10.14.3</li>
+                <li>Firefox 65 on macOS 10.14.3 / Windows 10</li>
+                <li>Edge 41.16299.820.0 / EdgeHTML 16.16299 on Windows 10</li>
+            </ul>
+            <p>Tested to work with these browser/assistive technology combinations:</p>
+            <ul>
+                <li>Safari 12.0.3 and VoiceOver on macOS 10.14.3</li>
+                <li>Chrome 71.0.3578.98 and VoiceOver on macOS 10.14.3</li>
+                <li>Chrome 71.0.3578.98 and NVDA 2018.4 on Windows 10 <a href="#fn3">3</a></li>
+                <li>Chrome 71.0.3578.98 and JAWS 2019 on Windows 10  <a href="#fn3">3</a></li>
+                <li>Edge 41.16299.820.0 / EdgeHTML 16.16299 and Narrator on Windows 10  <a href="#fn1">1</a></li>
+                <li>Edge 41.16299.820.0 / EdgeHTML 16.16299 and NVDA 2018.4 on Windows 10  <a href="#fn1">1</a></li>
+                <li>Edge 41.16299.820.0 / EdgeHTML 16.16299 and JAWS 2019 on Windows 10  <a href="#fn1">1</a>  <a href="#fn4">4</a></li>
+                <li>Firefox 65 and NVDA 2018.4 on Windows 10  <a href="#fn2">2</a></li>
+                <li>Firefox 65 and JAWS 2019 on Windows 10  <a href="#fn3">3</a></li>
+                
+            </ul>
+            <h4>Notes</h4>
+            <ol class="footnotes">
+                <li id="fn1">The settings button is announced as “gear, button”. This is most likely because Edge ignores the <code>aria-label</code> on the <code>span</code> with <code>role=img</code>. Perhaps Edge doesn’t support the <code>img</code>-role.</li>
+                <li id="fn2">NVDA announces the settings button as “Settings, graphic, button, view and manage settings”. There’s no delay between the announcement of the button name and its description.</li>
+                <li id="fn3">There’s no delay between the announcement of the button name and its description.</li>
+                <li id="fn4">The description isn’t announced.</li>
+            </ol>
+        </section>
+        <section>
+            <h2>Resources</h2>
+            <ul>
+                <li><a href="https://sarahmhigley.com/writing/tooltips-in-wcag-21/">Tooltips in the time of WCAG 2.1</a> by Sarah Higley</li>
+                <li><a href="https://inclusive-components.design/tooltips-toggletips/">Tooltips and Toggletips</a> by Heydon Works</li>
+                <li><a href="https://w3c.github.io/aria-practices/#tooltip">ARIA APG: Tooltip design pattern</a></li>
+                <li><a href="https://github.com/w3c/aria-practices/issues/128">GitHub APG: Draft tooltip design pattern</a></li>
+                <li><a href="https://github.com/w3c/aria-practices/issues/127">GitHub APG: Draft tooltip code example</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events">MDN: Pointer events</a></li>
+            </ul>
+        </section>
+        <section>
+            <h2>Special thanks</h2>
+            <ul>
+                <li><a href="https://github.com/thezacharytaylor">Zachary Taylor</a> for the bounding box calculations</li>
+            </ul>
+        </section>
+        <footer>
+            <p>Words by Zoë</p>
+        </footer>
+    </main>
+    <script src="tooltips.js"></script>
+</body>
+</html>

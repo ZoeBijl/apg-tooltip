@@ -1,0 +1,177 @@
+* {
+    box-sizing: border-box;
+}
+
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    padding: 0 1em;
+}
+
+body {
+    margin: 3em auto;
+    max-width: 40em;
+    font-family: sans-serif;
+    line-height: 1.5;
+}
+
+main section {
+    margin-top: 3em;
+    padding-top: 1em;
+    border-top: .25em solid purple;
+}
+
+article > header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+article > header p {
+    margin: 0;
+}
+    
+article > section {
+    margin-top: 3em;
+    padding-top: 1em;
+    border-top: .25em solid purple;
+}
+
+footer {
+    margin-top: 3em;
+    padding-top: 1em;
+    border-top: .25em solid purple;
+}
+
+a {
+    color: royalblue;
+}
+
+pre,
+code,
+kbd {
+    display: inline-block;
+    padding: .125em .25em;
+    border: .0675em solid #666;
+    border-radius: .25em;
+    color: rebeccapurple;
+    font-family: "Courier", monospace;
+    font-size: .9em;
+    font-weight: 700;
+    line-height: 1.25;
+    background: whitesmoke;
+}
+
+pre {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    background:
+        /* Shadow covers */
+        linear-gradient(to right, whitesmoke 25%, rgba(245, 245, 245, 0)),
+        linear-gradient(to left, whitesmoke 25%, rgba(245, 245, 245, 0)) 100% 0,
+
+        /* Shadows */
+        linear-gradient(to right, rgba(0,0,0,.2), rgba(0,0,0,0)),
+        linear-gradient(to left, rgba(0,0,0,.2), rgba(0,0,0,0)) 100% 0;
+    background-size: 
+        4em 100%,
+        4em 100%,
+        1em 100%,
+        1em 100%;
+    background-attachment:
+        local,
+        local,
+        scroll,
+        scroll;
+    background-repeat: no-repeat;
+    background-color: whitesmoke;
+}
+
+pre > code {
+    padding: unset;
+    border: unset;
+    border-radius: unset;
+    color: inherit;
+    font-family: inherit;
+    font-size: 1em;
+    font-weight: inherit;
+    line-height: inherit;
+    background: transparent;
+}
+
+kbd {
+    color: hsl(339, 65%, 49%);
+}
+
+img {
+    max-width: 100%;
+}
+
+p > em > strong {
+    color: darkred;
+}
+
+.at-only {
+    position: absolute;
+    margin: -1px;
+    padding: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+
+.experimental-code {
+    display: block;
+    margin: 0;
+    padding: .25em;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 299792458; /* Speed of light in m/s */
+    color: darkred;
+    font-weight: 700;
+    text-align: center;
+    background: repeating-linear-gradient(45deg, #f1ce06 1em, #f1ce06 2em, black 2em, black 3em);
+    background-repeat: no-repeat;
+    box-shadow: 0 0 2px rgba(0,0,0,.3);
+}
+
+.experimental-code span {
+    padding: .25em .5em;
+    border-radius: 1em;
+    background: #fff;
+}
+
+:is(h1, h2, h3, h4, h5, h6):first-child {
+    margin-top: 0;
+}
+
+/* Footnotes */
+[href^="#fn"] {
+    font-size: .75em;
+    vertical-align: super;
+}
+
+[href^="#fn"]::before {
+    content: '[';
+}
+
+[href^="#fn"]::after {
+    content: ']';
+}
+
+/* DL */
+dt {
+    font-weight: 700;
+}
+
+dd {
+    margin-left: .5em;
+}

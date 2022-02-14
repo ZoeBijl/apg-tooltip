@@ -2,15 +2,12 @@
     --tooltip-thingy-height: .5em;
 }
 
-[aria-hidden="true"] {
-    pointer-events: none;
-}
-
 .tooltip-container {
     position: relative;
     display: inline-block;
 }
 
+/* The arrow (or tooltip thingy) that connects the tooltip to the container */
 .tooltip-container::before {
     position: absolute;
     top: 100%;
@@ -47,10 +44,7 @@
     border-bottom-color: transparent;
 }
 
-.hidden {
-    display: none;
-}
-
+/* Tooltip styles */
 [role=tooltip] {
     position: absolute;
     top: 100%;
@@ -65,48 +59,62 @@
     box-shadow: 0 1px 2px hsl(0, 0%, 0%);
 }
 
+/* Hides the tooltip */
+.hidden {
+    display: none;
+}
+
+/* 
+    Removes the emoji container from the pointer event targets.
+    If removed the globalPointerDown() function will break when you click/top exactly on the emoji.
+*/
+[aria-hidden="true"] {
+    pointer-events: none;
+}
+
+/* Unrelated to tooltip workings */
 button {
-  display: inline-block;
-  position: relative;
-  padding: .4em .7em;
-  border: 1px solid hsl(213, 71%, 49%);
-  border-radius: 5px;
-  box-shadow: 0 1px 2px hsl(216, 27%, 55%);
-  color: #fff;
+    display: inline-block;
+    position: relative;
+    padding: .4em .7em;
+    border: 1px solid hsl(213, 71%, 49%);
+    border-radius: 5px;
+    box-shadow: 0 1px 2px hsl(216, 27%, 55%);
+    color: #fff;
     font-size: inherit;
-  text-shadow: 0 -1px 1px hsl(216, 27%, 25%);
-  background-color: hsl(216, 82%, 51%);
-  background-image: linear-gradient(to bottom, hsl(216, 82%, 53%), hsl(216, 82%, 47%));
+    text-shadow: 0 -1px 1px hsl(216, 27%, 25%);
+    background-color: hsl(216, 82%, 51%);
+    background-image: linear-gradient(to bottom, hsl(216, 82%, 53%), hsl(216, 82%, 47%));
 }
 
 button:hover {
-  border-color: hsl(213, 71%, 29%);
-  background-color: hsl(216, 82%, 31%);
-  background-image: linear-gradient(to bottom, hsl(216, 82%, 33%), hsl(216, 82%, 27%));
-  cursor: default;
+    border-color: hsl(213, 71%, 29%);
+    background-color: hsl(216, 82%, 31%);
+    background-image: linear-gradient(to bottom, hsl(216, 82%, 33%), hsl(216, 82%, 27%));
+    cursor: default;
 }
 
 button:focus {
-  outline: 2px transparent;
+    outline: 2px transparent;
 }
 
 button:focus::before {
-  position: absolute;
-  z-index: -1;
-  /* button border width - outline width - offset */
-  top: calc(-1px - 3px - 3px);
-  right: calc(-1px - 3px - 3px);
-  bottom: calc(-1px - 3px - 3px);
-  left: calc(-1px - 3px - 3px);
-  border: 3px solid hsl(213, 71%, 49%);
-  /* button border radius + outline width + offset */
-  border-radius: calc(5px + 3px + 3px);
-  content: '';
+    position: absolute;
+    z-index: -1;
+    /* button border width - outline width - offset */
+    top: calc(-1px - 3px - 3px);
+    right: calc(-1px - 3px - 3px);
+    bottom: calc(-1px - 3px - 3px);
+    left: calc(-1px - 3px - 3px);
+    border: 3px solid hsl(213, 71%, 49%);
+    /* button border radius + outline width + offset */
+    border-radius: calc(5px + 3px + 3px);
+    content: '';
 }
 
 button:active {
-  border-color: hsl(213, 71%, 49%);
-  background-color: hsl(216, 82%, 31%);
-  background-image: linear-gradient(to bottom, hsl(216, 82%, 53%), hsl(216, 82%, 47%));
-  box-shadow: inset 0 3px 5px 1px hsl(216, 82%, 30%);
+    border-color: hsl(213, 71%, 49%);
+    background-color: hsl(216, 82%, 31%);
+    background-image: linear-gradient(to bottom, hsl(216, 82%, 53%), hsl(216, 82%, 47%));
+    box-shadow: inset 0 3px 5px 1px hsl(216, 82%, 30%);
 }

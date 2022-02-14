@@ -23,34 +23,38 @@
         <section>
             <h2 id="tooltip-main-label">Tooltip as main label</h2>
             <p>In this version the label for the button is privded via a <code>aria-labelledby</code> attribute that points to tooltip text.</p>
-            <div class="tooltip-container">
+            <div class="tooltip-container" data-tooltip-position="top">
                 <button type="button" aria-labelledby="tooltip">
                     <span aria-hidden="true">💛</span>
                 </button>
                 <p id="tooltip" role="tooltip" class="hidden">Like</p>
             </div>
+            <p>Note: the default position of this tooltip is set to be above the control. This is changed via the <code>data-tooltip-position</code> attribute on the <code>&lt;div&gt;</code> with the <code>tooltip-container</code> class.</p>
             <h3>Source</h3>
-<pre><code>&lt;button type="button" aria-labelledby="tooltip"&gt;
+<pre><code>&lt;div class="tooltip-container" data-tooltip-position="top"&gt;
+  &lt;button type="button" aria-labelledby="tooltip" data-tooltip-position="top"&gt;
     &lt;span aria-hidden="true"&gt;💛&lt;/span&gt;
-&lt;/button&gt;
-&lt;p id="tooltip" role="tooltip" class="hidden"&gt;Like&lt;/p&gt;
+  &lt;/button&gt;
+  &lt;p id="tooltip" role="tooltip" class="hidden"&gt;Like&lt;/p&gt;
+&lt;/div&gt;
 </code></pre>
         </section>
         <section>
             <h2 id="tooltip-additional">Tooltip with additional information</h2>
             <p>This implementation follows the <a href="https://w3c.github.io/aria-practices/#tooltip">guidance of the ARIA Authoring Practices Guide</a>.</p>
-            <div class="tooltip-container" data-tooltip-position="top">
+            <div class="tooltip-container">
                 <button type="button" aria-describedby="description">
                     Settings
                 </button>
                 <p id="description" role="tooltip" class="hidden">View and manage settings</p>
             </div>
-            <p>Note: the default position of this tooltip is set to be above the control. This is set via the <code>data-tooltip-position</code> attribute value.</p>
             <h3>Source</h3>
-<pre><code>&lt;button type="button" aria-describedby="description" data-tooltip-position="top"&gt;
+<pre><code>&lt;div class="tooltip-container"&gt;
+  &lt;button type="button" aria-describedby="description"&gt;
     Settings
-&lt;/button&gt;
-&lt;p id="description" role="tooltip" class="hidden"&gt;View and manage settings&lt;/p&gt;
+  &lt;/button&gt;
+  &lt;p id="description" role="tooltip" class="hidden"&gt;View and manage settings&lt;/p&gt;
+&lt;/div&gt;
 </code></pre>
         </section>
         <section>
@@ -114,7 +118,7 @@
                 <li>Edge 41.16299.820.0 / EdgeHTML 16.16299 and JAWS 2019 on Windows 10  <a href="#fn1">1</a>  <a href="#fn4">4</a></li>
                 <li>Firefox 65 and NVDA 2018.4 on Windows 10  <a href="#fn2">2</a></li>
                 <li>Firefox 65 and JAWS 2019 on Windows 10  <a href="#fn3">3</a></li>
-                
+
             </ul>
             <h4>Notes</h4>
             <ol class="footnotes">

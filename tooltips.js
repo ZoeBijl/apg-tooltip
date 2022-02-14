@@ -11,31 +11,33 @@ class Tooltip {
   }
 
   // Basic actions
-  open() {
+  openTooltip() {
     this.showTooltip()
+    this.checkBoundingBox()
     this.attachGlobalListener()
   }
 
-  close() {
+  closeTooltip() {
     this.hideTooltip()
+    this.resetBoundingBox()
     this.removeGlobalListener()
   }
 
   // Binding event listteners
   bindEvents() {
-    // Events that trigger open()
+    // Events that trigger openTooltip()
     // Open on mouse hover
-    this.container.addEventListener('mouseenter', this.open.bind(this))
+    this.container.addEventListener('mouseenter', this.openTooltip.bind(this))
     // Open when a touch is detected
-    this.container.addEventListener('touchstart', this.open.bind(this))
+    this.container.addEventListener('touchstart', this.openTooltip.bind(this))
     // Open when the button gets focus
-    this.button.addEventListener('focus', this.open.bind(this))
+    this.button.addEventListener('focus', this.openTooltip.bind(this))
 
-    // Events that trigger close()
+    // Events that trigger closeTooltip()
     // Close when the mouse cursor leaves the button or tooltip area
-    this.container.addEventListener('mouseleave', this.close.bind(this))
+    this.container.addEventListener('mouseleave', this.closeTooltip.bind(this))
     // Close when the buttons loses focus
-    this.button.addEventListener('blur', this.close.bind(this))
+    this.button.addEventListener('blur', this.closeTooltip.bind(this))
   }
 
   attachGlobalListener() {
@@ -72,13 +74,11 @@ class Tooltip {
   showTooltip() {
     this.container.classList.add('tooltip-visible')
     this.tooltip.classList.remove('hidden')
-    this.checkBoundingBox()
   }
 
   hideTooltip() {
     this.container.classList.remove('tooltip-visible')
     this.tooltip.classList.add('hidden')
-    this.resetBoundingBox()
   }
 
   // Get the desired default position for the tooltip (defaults to 'bottom')

@@ -52,7 +52,7 @@ class Tooltip {
 
   globalEscape(event) {
     if (event.key === 'Escape' || event.key === 'Esc') {
-      this.close()
+      this.closeTooltip()
     }
   }
 
@@ -65,7 +65,7 @@ class Tooltip {
         event.preventDefault()
         break
       default:
-        this.close()
+        this.closeTooltip()
         this.button.blur()
     }
   }

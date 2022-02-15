@@ -118,3 +118,75 @@ button:active {
   background-image: linear-gradient(to bottom, hsl(216, 82%, 53%), hsl(216, 82%, 47%));
   box-shadow: inset 0 3px 5px 1px hsl(216, 82%, 30%);
 }
+
+/* Totally useless but fun! (Note: maaaaaybe _don’t_ include this in the final PR) */
+:root {
+  --button-border: hsl(213, 71%, 49%);
+  --button-background: hsl(216, 82%, 51%);
+  --button-gradient-start: hsl(216, 82%, 53%);
+  --button-gradient-end: hsl(216, 82%, 47%);
+  --button-box-shadow: hsl(216, 27%, 55%);
+  --button-text-shadow: hsl(216, 27%, 25%);
+
+  --button-hover-border: hsl(213, 71%, 29%);
+  --button-hover-background: hsl(216, 82%, 31%);
+  --button-hover-gradient-start: hsl(216, 82%, 33%);
+  --button-hover-gradient-end: hsl(216, 82%, 27%);
+
+  --button-focus-border: hsl(213, 71%, 49%);
+
+  --button-active-border: hsl(213, 71%, 49%);
+  --button-active-background: hsl(216, 82%, 31%);
+  --button-active-gradient-start: hsl(216, 82%, 53%);
+  --button-active-gradient-end: hsl(216, 82%, 47%);
+  --button-active-box-shadow: hsl(216, 82%, 30%);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+    --button-border: hsl(260, 10%, 39%);
+    --button-background: hsl(269, 20%, 50%);
+    --button-gradient-start: hsl(269, 20%, 53%);
+    --button-gradient-end: hsl(269, 20%, 47%);
+    --button-box-shadow: hsl(269, 7%, 25%);
+    --button-text-shadow: hsl(269, 7%, 25%);
+
+    --button-hover-border: hsl(260, 10%, 29%);
+    --button-hover-background: hsl(269, 20%, 31%);
+    --button-hover-gradient-start: hsl(269, 20%, 33%);
+    --button-hover-gradient-end: hsl(269, 20%, 27%);
+
+    --button-focus-border: hsl(260, 30%, 53%);
+
+    --button-active-border: hsl(260, 10%, 39%);
+    --button-active-background: hsl(269, 20%, 31%);
+    --button-active-gradient-start: hsl(269, 20%, 53%);
+    --button-active-gradient-end: hsl(269, 20%, 47%);
+    --button-active-box-shadow: hsl(269, 20%, 30%);
+  }
+}
+
+button {
+  border-color: var(--button-border);
+  box-shadow: 0 1px 2px var(--button-box-shadow);
+  text-shadow: 0 -1px 1px var(--button-text-shadow);
+  background-color: var(--button-background);
+  background-image: linear-gradient(to bottom, var(--button-gradient-start), var(--button-gradient-end));
+}
+
+button:hover {
+  border-color: var(--button-hover-border);
+  background-color: var(--button-hover-background);
+  background-image: linear-gradient(to bottom, var(--button-hover-gradient-start), var(--button-hover-gradient-end));
+}
+
+button:focus::before {
+  border: 3px solid var(--button-focus-border);
+}
+
+button:active {
+  border-color: var(--button-active-border);
+  background-color: var(--button-active-background);
+  background-image: linear-gradient(to bottom, var(--button-active-gradient-start), var(--button-active-gradient-end));
+  box-shadow: inset 0 3px 5px 1px var(--button-active-box-shadow);
+}

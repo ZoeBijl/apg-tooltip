@@ -33,7 +33,7 @@ article > header {
 article > header p {
     margin: 0;
 }
-    
+
 article > section {
     margin-top: 3em;
     padding-top: 1em;
@@ -77,7 +77,7 @@ pre {
         /* Shadows */
         linear-gradient(to right, rgba(0,0,0,.2), rgba(0,0,0,0)),
         linear-gradient(to left, rgba(0,0,0,.2), rgba(0,0,0,0)) 100% 0;
-    background-size: 
+    background-size:
         4em 100%,
         4em 100%,
         1em 100%,
@@ -147,6 +147,23 @@ p > em > strong {
     padding: .25em .5em;
     border-radius: 1em;
     background: #fff;
+}
+
+.warning,
+.note {
+    margin: 1em 0;
+    padding: 1em;
+    border-left: 0.5em solid;
+}
+
+.warning {
+    border-left-color: rgba(153, 51, 51, 0.7);
+    background: rgba(153, 51, 51, .2);
+}
+
+.note {
+    border-left-color: rgba(102, 51, 153, .7);
+    background: rgba(102, 51, 153, .2);
 }
 
 :is(h1, h2, h3, h4, h5, h6):first-child {

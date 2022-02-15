@@ -21,25 +21,6 @@
       </ul>
     </section>
     <section>
-      <h2 id="tooltip-main-label">Tooltip as main label</h2>
-      <p>In this version the label for the button is privded via a <code>aria-labelledby</code> attribute that points to tooltip text.</p>
-      <div class="tooltip-container" data-tooltip-position="top">
-        <button type="button" aria-labelledby="tooltip">
-          <span aria-hidden="true">💛</span>
-        </button>
-        <p id="tooltip" role="tooltip" class="hidden">Like</p>
-      </div>
-      <p>Note: the default position of this tooltip is set to be above the control. This is changed via the <code>data-tooltip-position</code> attribute on the <code>&lt;div&gt;</code> with the <code>tooltip-container</code> class.</p>
-      <h3>Source</h3>
-<pre><code>&lt;div class="tooltip-container" data-tooltip-position="top"&gt;
-  &lt;button type="button" aria-labelledby="tooltip" data-tooltip-position="top"&gt;
-    &lt;span aria-hidden="true"&gt;💛&lt;/span&gt;
-  &lt;/button&gt;
-  &lt;p id="tooltip" role="tooltip" class="hidden"&gt;Like&lt;/p&gt;
-&lt;/div&gt;
-</code></pre>
-    </section>
-    <section>
       <h2 id="tooltip-additional">Tooltip with additional information</h2>
       <p>This implementation follows the <a href="https://w3c.github.io/aria-practices/#tooltip">guidance of the ARIA Authoring Practices Guide</a>.</p>
       <div class="tooltip-container">
@@ -54,6 +35,26 @@
     Settings
   &lt;/button&gt;
   &lt;p id="description" role="tooltip" class="hidden"&gt;View and manage settings&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+    </section>
+    <section>
+      <h2 id="tooltip-main-label">Tooltip as main label</h2>
+      <p>In this version the label for the button is privded via a <code>aria-labelledby</code> attribute that points to tooltip text.</p>
+      <div class="tooltip-container" data-tooltip-position="top">
+        <button type="button" aria-labelledby="tooltip">
+          <span aria-hidden="true">💛</span>
+        </button>
+        <p id="tooltip" role="tooltip" class="hidden">Like</p>
+      </div>
+      <p class="warning">Warning: this pattern isn’t a valid/supported usecase in <a href="https://www.w3.org/TR/wai-aria-1.2/#tooltip">ARIA 1.2</a>.</p>
+      <p class="note">Note: the default position of this tooltip is set to be above the control. This is changed via the <code>data-tooltip-position</code> attribute on the <code>&lt;div&gt;</code> with the <code>tooltip-container</code> class.</p>
+      <h3>Source</h3>
+<pre><code>&lt;div class="tooltip-container" data-tooltip-position="top"&gt;
+  &lt;button type="button" aria-labelledby="tooltip" data-tooltip-position="top"&gt;
+    &lt;span aria-hidden="true"&gt;💛&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;p id="tooltip" role="tooltip" class="hidden"&gt;Like&lt;/p&gt;
 &lt;/div&gt;
 </code></pre>
     </section>

@@ -47,7 +47,14 @@
         </button>
         <p id="tooltip" role="tooltip" class="hidden">Like</p>
       </div>
-      <p class="warning">Warning: this pattern isn’t a valid/supported usecase in <a href="https://www.w3.org/TR/wai-aria-1.2/#tooltip">ARIA 1.2</a>.</p>
+      <section class="warning">
+        <p>Warning: this pattern isn’t a valid/supported usecase in <a href="https://www.w3.org/TR/wai-aria-1.2/#tooltip">ARIA 1.2</a>.</p>
+        <h3>Related GitHub issues</h3>
+        <ul>
+          <li><a href="https://github.com/w3c/aria-practices/issues/1034">Tooltip pattern should allow for aria-labelledby</a></li>
+          <li><a href="https://github.com/w3c/aria/issues/979">Clarify the use of role=tooltip</a></li>
+        </ul>
+      </section>
       <p class="note">Note: the default position of this tooltip is set to be above the control. This is changed via the <code>data-tooltip-position</code> attribute on the <code>&lt;div&gt;</code> with the <code>tooltip-container</code> class.</p>
       <h3>Source</h3>
 <pre><code>&lt;div class="tooltip-container" data-tooltip-position="top"&gt;

@@ -18,7 +18,7 @@ body {
     line-height: 1.5;
 }
 
-main section {
+main section:not(.note):not(.warning) {
     margin-top: 3em;
     padding-top: 1em;
     border-top: .25em solid purple;
@@ -34,7 +34,7 @@ article > header p {
     margin: 0;
 }
 
-article > section {
+article > section:not(.note):not(.warning) {
     margin-top: 3em;
     padding-top: 1em;
     border-top: .25em solid purple;
@@ -154,6 +154,18 @@ p > em > strong {
     margin: 1em 0;
     padding: 1em;
     border-left: 0.5em solid;
+}
+
+:is(.warning, .note) :is(h3, h4) {
+  font-size: 1em;
+}
+
+:is(.warning, .note) :first-child {
+  margin-top: 0;
+}
+
+:is(.warning, .note) :last-child {
+  margin-bottom: 0;
 }
 
 .warning {

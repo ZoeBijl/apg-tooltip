@@ -13,14 +13,16 @@
     <p>Two different implementations of the tooltip design pattern. Both implementation comply with <a href="https://www.w3.org/TR/WCAG21/#content-on-hover-or-focus">WCAG 2.1 SC 1.4.13 Content on Hover or Focus</a>.</p>
     <section>
       <h2 id="tooltip-additional">Tooltip with additional information</h2>
-      <p>This implementation follows the <a href="https://w3c.github.io/aria-practices/#tooltip">guidance of the ARIA Authoring Practices Guide</a>.</p>
-      <div class="tooltip-container">
-        <button type="button" aria-describedby="description">
-          Settings
-        </button>
-        <p id="description" role="tooltip" class="hidden">View and manage settings</p>
-      </div>
-      <h3>Source</h3>
+      <p>These implementations follow the <a href="https://w3c.github.io/aria-practices/#tooltip">guidance of the ARIA Authoring Practices Guide</a>.</p>
+      <section>
+        <h3>On a button</h3>
+        <div class="tooltip-container">
+          <button type="button" aria-describedby="description" data-tooltip-trigger>
+            Settings
+          </button>
+          <p id="description" role="tooltip" class="hidden">View and manage settings</p>
+        </div>
+        <h4>Source</h4>
 <pre><code>&lt;div class="tooltip-container"&gt;
   &lt;button type="button" aria-describedby="description"&gt;
     Settings
@@ -28,12 +30,29 @@
   &lt;p id="description" role="tooltip" class="hidden"&gt;View and manage settings&lt;/p&gt;
 &lt;/div&gt;
 </code></pre>
+      </section>
+      <section>
+        <h3>On a link</h3>
+        <p>After lunch we drove up the <span class="tooltip-container"><a href="https://www.alpen-paesse.ch/en/alpenpaesse/sustenpass/" aria-describedby="link-description" data-tooltip-trigger>Sustenpass</a><span id="link-description" role="tooltip" class="hidden">A beautiful road in Switzerland</span></span> to take a group photo.</p>
+        <h4>Source</h4>
+<pre><code>&lt;p&gt;
+  After lunch we drove up the
+  &lt;span class="tooltip-container"&gt;
+    &lt;a href="https://www.alpen-paesse.ch/en/alpenpaesse/sustenpass/" aria-describedby="link-description" data-tooltip-trigger&gt;
+      Sustenpass
+    &lt;/a&gt;
+    &lt;span id="link-description" role="tooltip" class="hidden"&gt;A beautiful road in Switzerland&lt;/span&gt;
+  &lt;/span&gt;
+  to take a group photo.
+&lt;/p&gt;
+</code></pre>
+      </section>
     </section>
     <section>
       <h2 id="tooltip-main-label">Tooltip as main label</h2>
       <p>In this version the label for the button is privded via a <code>aria-labelledby</code> attribute that points to tooltip text.</p>
       <div class="tooltip-container" data-tooltip-position="top">
-        <button type="button" aria-labelledby="tooltip">
+        <button type="button" aria-labelledby="tooltip" data-tooltip-trigger>
           <span aria-hidden="true">💛</span>
         </button>
         <p id="tooltip" role="tooltip" class="hidden">Like</p>

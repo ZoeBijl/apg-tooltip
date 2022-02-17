@@ -76,12 +76,27 @@
 </code></pre>
     </section>
     <section>
-      <h2 id="keyboard-support">Keyboard support</h2>
-      <p>Pressing <kbd>Escape</kbd> will close the tooltip.</p>
-    </section>
-    <section>
-      <h2 id="touch-support">Touch support</h2>
-      <p>Tapping anywhere outside the tooltip or button will close the tooltip.</p>
+      <h2>Interaction models</h2>
+      <p>This design pattern supports these interaction models:</p>
+      <section>
+        <h3 id="keyboard-support">Keyboard</h3>
+        <ul>
+          <li>Tooltip is shown when focus is set on the tooltip trigger</li>
+          <li>Tooltip is hidden when the tooltip trigger loses focus</li>
+        </ul>
+        <p>Pressing <kbd>Escape</kbd> will close the tooltip.</p>
+      </section>
+      <section>
+        <h3 id="mouse-support">Mouse</h3>
+        <ul>
+          <li>Tooltip is shown when the cursor enters the tooltip trigger</li>
+          <li>Tooltip is hidden when the cursor leaves the tooltip trigger (except if cursor moves onto the tooltip itself)</li>
+        </ul>
+      </section>
+      <section>
+        <h3 id="touch-support">Touch</h3>
+        <p>Tapping anywhere outside the tooltip or button will close the tooltip.</p>
+      </section>
     </section>
     <section>
       <h2 id="development-notes">Development notes</h2>

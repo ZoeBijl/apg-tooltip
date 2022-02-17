@@ -74,6 +74,46 @@
   &lt;p id="tooltip" role="tooltip" class="hidden"&gt;Like&lt;/p&gt;
 &lt;/div&gt;
 </code></pre>
+      <h3>Issues</h3>
+      <p>
+        Tooltips are a good way to show sighted people what a control does.
+        For a person that relies on the accessibility information this approach doesn’t add much.
+      </p>
+      <p>
+        For example, Jane (she/her), an avid user of JAWS lands on this control.
+        JAWS happily announces that it’s a button with the label “Like”.
+        JAWS also announces that there’s a tooltip.
+        Jane, eager to explore, moves into the tooltip only to find the exact same text.
+        This isn’t the worst experience but certainly not the best either.
+      </p>
+      <p>
+        In a scenario like this,
+        where the tooltip only adds information for sighted people,
+        it would make a lot more sense to <em>not</em> use the <code>tooltip</code> role.
+        The accessible name can still be linked with <code>aria-labelledby</code>.
+      </p>
+<pre><code>&lt;div class="tooltip-container"&gt;
+  &lt;button type="button" aria-labelledby="tooltip"&gt;
+    &lt;span aria-hidden="true"&gt;💛&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;p id="tooltip" class="hidden"&gt;Like&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+      <p>
+        At this point it might be worth to reconsider if ARIA is needed to set the accessible name.
+        After all the
+        <a href="https://www.w3.org/TR/aria-in-html/#rule1">first rule of ARIA</a>
+        is to not use it if you can do without.
+        An accessible name also be provided with a visually hidden span inside the button:
+      </p>
+<pre><code>&lt;div class="tooltip-container"&gt;
+  &lt;button type="button"&gt;
+    &lt;span aria-hidden="true"&gt;💛&lt;/span&gt;
+    &lt;span class="visually-hidden"&gt;Like&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;p id="tooltip" class="hidden"&gt;Like&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
     </section>
     <section>
       <h2>Interaction models</h2>

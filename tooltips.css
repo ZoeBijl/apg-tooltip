@@ -34,7 +34,7 @@
 
 .tooltip-container.top::before,
 .tooltip-container.top::after,
-.tooltip-container.top [role=tooltip] {
+.tooltip-container.top [role="tooltip"] {
   top: unset;
   bottom: 100%;
 }
@@ -44,12 +44,17 @@
   border-bottom-color: transparent;
 }
 
+.tooltip-container.top [role="tooltip"] {
+  bottom: calc(100% + calc(var(--tooltip-thingy-height) * 2));
+}
+
 /* Tooltip styles */
-[role=tooltip] {
+[role="tooltip"] {
   position: absolute;
-  top: 100%;
+  top: calc(100% + calc(var(--tooltip-thingy-height) * 2));
   left: 50%;
   transform: translateX(-50%);
+  margin: 0;
   padding: .5em 1em;
   border-radius: .25em;
   color: white;

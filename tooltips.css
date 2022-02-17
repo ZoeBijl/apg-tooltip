@@ -71,7 +71,7 @@
 
 /*
   Removes the emoji container from the pointer event targets.
-  If removed the globalPointerDown() function will break when you click/top exactly on the emoji.
+  If removed the globalPointerDown() function will break when you click/tap exactly on the emoji.
 */
 [aria-hidden="true"] {
   pointer-events: none;

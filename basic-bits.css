@@ -64,8 +64,14 @@ body {
 
 main section:not(.note):not(.warning) {
     margin-top: 3em;
-    padding-top: 1em;
+    padding-top: 3em;
     border-top: .25em solid var(--section-border);
+}
+
+main h2 ~ section:not(.note):not(.warning) {
+  margin-top: 1.5em;
+  padding-top: 1.5em;
+  border-top-width: .125em;
 }
 
 article > header {

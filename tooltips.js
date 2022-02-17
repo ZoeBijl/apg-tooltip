@@ -1,7 +1,7 @@
 class Tooltip {
   constructor(element) {
     this.container = element
-    this.button = element.querySelector('button')
+    this.trigger = element.querySelector('[data-tooltip-trigger]')
     this.tooltip = element.querySelector('[role=tooltip]')
     this.tooltipPosition = this.getTooltipPosition()
     this.globalEscapeBound = this.globalEscape.bind(this)
@@ -30,14 +30,14 @@ class Tooltip {
     this.container.addEventListener('mouseenter', this.openTooltip.bind(this))
     // Open when a touch is detected
     this.container.addEventListener('touchstart', this.openTooltip.bind(this))
-    // Open when the button gets focus
-    this.button.addEventListener('focus', this.openTooltip.bind(this))
+    // Open when the trigger gets focus
+    this.trigger.addEventListener('focus', this.openTooltip.bind(this))
 
     // Events that trigger closeTooltip()
-    // Close when the mouse cursor leaves the button or tooltip area
+    // Close when the mouse cursor leaves the trigger or tooltip area
     this.container.addEventListener('mouseleave', this.closeTooltip.bind(this))
-    // Close when the buttons loses focus
-    this.button.addEventListener('blur', this.closeTooltip.bind(this))
+    // Close when the trigger loses focus
+    this.trigger.addEventListener('blur', this.closeTooltip.bind(this))
   }
 
   attachGlobalListener() {
@@ -60,13 +60,13 @@ class Tooltip {
   globalPointerDown(event) {
     switch (event.target) {
       case this.container:
-      case this.button:
+      case this.trigger:
       case this.tooltip:
         event.preventDefault()
         break
       default:
         this.closeTooltip()
-        this.button.blur()
+        this.trigger.blur()
     }
   }
 

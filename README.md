@@ -1,6 +1,6 @@
 # Tooltip code example for APG
 
-Tooltip design pattern code example for the ARIA Authroing Practices.
+Tooltip design pattern code example for the ARIA Authoring Practices.
 
 ## Related links
 - [Live demo](https://zoebijl.github.io/apg-tooltip/)
